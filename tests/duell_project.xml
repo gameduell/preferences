@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project>
+	
+	<app title="SampleTest" file="sampleTest" package="de.gameduell.preferencestest" version="0.0.1" company="GameDuell GmbH"  />
+
+	<main name="MainUnitTest" />
+	
+	<source path="Source" />
+
+    <duelllib name="preferences" version="master" />
+	<duelllib name="unittest" version="1.0.0+" />
+
+</project>
