@@ -5,22 +5,61 @@
 package preferences;
 
 /**
-   // TODO description
+    Helper class for providing a handy way of setting and retrieving values for keys of the basic types.
 
-   @author jxav
+    Destructive changes (edits) can be handled synchronously or asynchronously (depending on the backends).
+
+    @author jxav
  */
 extern class Preferences
 {
+    /**
+        Retrieves an Int for the given `key`. Returns `null` if the key doesn't exist.
+     */
     public static function getInt(key: String): Null<Int>;
+    /**
+        Retrieves a Bool for the given `key`. Returns `null` if the key doesn't exist.
+     */
     public static function getBool(key: String): Null<Bool>;
+    /**
+        Retrieves a Float for the given `key`. Returns `null` if the key doesn't exist.
+     */
     public static function getFloat(key: String): Null<Float>;
+    /**
+        Retrieves a Stromg for the given `key`. Returns `null` if the key doesn't exist.
+     */
     public static function getString(key: String): Null<String>;
 
+    /**
+        Puts the specified Int `value` in the given `key`.
+
+        Like all destructive changes, requires a call to `apply()` or `synchronize()` to synchronize the changes.
+     */
     public static function putInt(key: String, value: Int): Void;
+    /**
+        Puts the specified Bool `value` in the given `key`.
+
+        Like all destructive changes, requires a call to `apply()` or `synchronize()` to synchronize the changes.
+     */
     public static function putBool(key: String, value: Bool): Void;
+    /**
+        Puts the specified Float `value` in the given `key`.
+
+        Like all destructive changes, requires a call to `apply()` or `synchronize()` to synchronize the changes.
+     */
     public static function putFloat(key: String, value: Float): Void;
+    /**
+        Puts the specified String `value` in the given `key`.
+
+        Like all destructive changes, requires a call to `apply()` or `synchronize()` to synchronize the changes.
+     */
     public static function putString(key: String, value: String): Void;
 
+    /**
+        Removes the specified `key`. Has no effect if the key doesn't exist.
+
+        Like all destructive changes, requires a call to `apply()` or `synchronize()` to synchronize the changes.
+     */
     public static function remove(key: String): Void;
 
     /**
