@@ -66,5 +66,6 @@ class Preferences
     public static function synchronize(): Bool
     {
         // TODO
+        return false;
     }
 }

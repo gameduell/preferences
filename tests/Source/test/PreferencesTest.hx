@@ -7,11 +7,11 @@ class PreferencesTest extends TestCase
 {
     public function new()
     {
-        Preferences.removeKey("bool_flag");
-        Preferences.removeKey("int_flag");
-        Preferences.removeKey("float_flag");
-        Preferences.removeKey("string_flag");
-        Preferences.removeKey("key_to_be_removed");
+        Preferences.remove("bool_flag");
+        Preferences.remove("int_flag");
+        Preferences.remove("float_flag");
+        Preferences.remove("string_flag");
+        Preferences.remove("key_to_be_removed");
 
         super();
     }
@@ -40,7 +40,7 @@ class PreferencesTest extends TestCase
 
         assertEquals(42, Preferences.getInt("int_flag"));
 
-        Preferences.putBool("int_flag", 250);
+        Preferences.putInt("int_flag", 250);
         Preferences.synchronize();
 
         assertEquals(250, Preferences.getInt("int_flag"));
@@ -83,7 +83,7 @@ class PreferencesTest extends TestCase
 
         assertEquals("val", Preferences.getString("key_to_be_removed"));
 
-        Preferences.removeKey("key_to_be_removed");
+        Preferences.remove("key_to_be_removed");
         Preferences.synchronize();
 
         assertEquals(null, Preferences.getString("key_to_be_removed"));
