@@ -1,6 +1,4 @@
-*.iml
 .idea/
-gen/
 tests/Export/
-ndll/
-project/obj/
+backends/preferences_ios/ndll/
+backends/preferences_ios/project/obj/

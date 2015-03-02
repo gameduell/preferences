@@ -4,33 +4,36 @@
  */
 package preferences;
 
+import cpp.Lib;
+
 /**
-   @author jxav
+    @author jxav
  */
 class Preferences
 {
+    private static var getIntNative = Lib.load("preferencesios", "getInt", 2);
+    private static var getBoolNative = Lib.load("preferencesios", "getBool", 2);
+    private static var getFloatNative = Lib.load("preferencesios", "getFloat", 2);
+    private static var getStringNative = Lib.load("preferencesios", "getString", 2);
+
     public static function getInt(key: String, defaultValue: Int): Int
     {
-        // TODO
-        return defaultValue;
+        return getIntNative(key, defaultValue);
     }
 
     public static function getBool(key: String, defaultValue: Bool): Bool
     {
-        // TODO
-        return defaultValue;
+        return getBoolNative(key, defaultValue);
     }
 
     public static function getFloat(key: String, defaultValue: Float): Float
     {
-        // TODO
-        return defaultValue;
+        return getFloatNative(key, defaultValue);
     }
 
     public static function getString(key: String, defaultValue: String): String
     {
-        // TODO
-        return defaultValue;
+        return getStringNative(key, defaultValue);
     }
 
     public static function getEditor(): Editor
