@@ -9,63 +9,32 @@ package preferences;
  */
 class Preferences
 {
-    public static function getInt(key: String): Null<Int>
+    public static function getInt(key: String, defaultValue: Int): Int
     {
         // TODO
-        return null;
+        return defaultValue;
     }
 
-    public static function getBool(key: String): Null<Bool>
+    public static function getBool(key: String, defaultValue: Bool): Bool
     {
         // TODO
-        return null;
+        return defaultValue;
     }
 
-    public static function getFloat(key: String): Null<Float>
+    public static function getFloat(key: String, defaultValue: Float): Float
     {
         // TODO
-        return null;
+        return defaultValue;
     }
 
-    public static function getString(key: String): Null<String>
+    public static function getString(key: String, defaultValue: String): String
     {
         // TODO
-        return null;
+        return defaultValue;
     }
 
-    public static function putInt(key: String, value: Int): Void
+    public static function getEditor(): Editor
     {
-        // TODO
-    }
-
-    public static function putBool(key: String, value: Bool): Void
-    {
-        // TODO
-    }
-
-    public static function putFloat(key: String, value: Float): Void
-    {
-        // TODO
-    }
-
-    public static function putString(key: String, value: String): Void
-    {
-        // TODO
-    }
-
-    public static function remove(key: String): Void
-    {
-        // TODO
-    }
-
-    public static function apply(): Void
-    {
-        // TODO
-    }
-
-    public static function synchronize(): Bool
-    {
-        // TODO
-        return false;
+        return new Editor();
     }
 }

@@ -5,73 +5,32 @@
 package preferences;
 
 /**
-    Helper class for providing a handy way of setting and retrieving values for keys of the basic types.
-
-    Destructive changes (edits) can be handled synchronously or asynchronously (depending on the backends).
+    Helper class for providing a handy way of retrieving values for keys of the basic types and an editor to write to
+    this key/value storage.
 
     @author jxav
  */
 extern class Preferences
 {
     /**
-        Retrieves an Int for the given `key`. Returns `null` if the key doesn't exist.
+        Retrieves an Int for the given `key`. Returns `defaultValue` if the key doesn't exist.
      */
-    public static function getInt(key: String): Null<Int>;
+    public static function getInt(key: String, defaultValue: Int): Int;
     /**
-        Retrieves a Bool for the given `key`. Returns `null` if the key doesn't exist.
+        Retrieves a Bool for the given `key`. Returns `defaultValue` if the key doesn't exist.
      */
-    public static function getBool(key: String): Null<Bool>;
+    public static function getBool(key: String, defaultValue: Bool): Bool;
     /**
-        Retrieves a Float for the given `key`. Returns `null` if the key doesn't exist.
+        Retrieves a Float for the given `key`. Returns `defaultValue` if the key doesn't exist.
      */
-    public static function getFloat(key: String): Null<Float>;
+    public static function getFloat(key: String, defaultValue: Float): Float;
     /**
-        Retrieves a Stromg for the given `key`. Returns `null` if the key doesn't exist.
+        Retrieves a String for the given `key`. Returns `defaultValue` if the key doesn't exist.
      */
-    public static function getString(key: String): Null<String>;
+    public static function getString(key: String, defaultValue: String): String;
 
     /**
-        Puts the specified Int `value` in the given `key`.
-
-        Like all destructive changes, requires a call to `apply()` or `synchronize()` to synchronize the changes.
+        Retrieves an `Editor` instance where the changes should be made and committed to.
      */
-    public static function putInt(key: String, value: Int): Void;
-    /**
-        Puts the specified Bool `value` in the given `key`.
-
-        Like all destructive changes, requires a call to `apply()` or `synchronize()` to synchronize the changes.
-     */
-    public static function putBool(key: String, value: Bool): Void;
-    /**
-        Puts the specified Float `value` in the given `key`.
-
-        Like all destructive changes, requires a call to `apply()` or `synchronize()` to synchronize the changes.
-     */
-    public static function putFloat(key: String, value: Float): Void;
-    /**
-        Puts the specified String `value` in the given `key`.
-
-        Like all destructive changes, requires a call to `apply()` or `synchronize()` to synchronize the changes.
-     */
-    public static function putString(key: String, value: String): Void;
-
-    /**
-        Removes the specified `key`. Has no effect if the key doesn't exist.
-
-        Like all destructive changes, requires a call to `apply()` or `synchronize()` to synchronize the changes.
-     */
-    public static function remove(key: String): Void;
-
-    /**
-        Synchronizes the modified changes with whatever was present in the preferences, asynchronously.
-
-        Not all backends support this feature, so this feature might call `synchronize()` for some backends.
-     */
-    public static function apply(): Void;
-
-    /**
-        Synchronizes the modified changes with whatever was present in the preferences, synchronously, and returns
-        whether the operation was successful or not.
-     */
-    public static function synchronize(): Bool;
+    public static function getEditor(): Editor;
 }
