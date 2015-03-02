@@ -6,14 +6,22 @@ package org.haxe.duell.preferences;
 
 import org.haxe.duell.DuellActivity;
 
+import java.lang.ref.WeakReference;
+
+import android.app.Application;
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.util.Log;
+
 /**
  * @author jxav
  */
 public final class Preferences
 {
+    private static final String TAG = Preferences.class.getSimpleName();
     private static final String SHARED_PREFERENCES_NAME = "org.haxe.duell.preferences";
 
-    private static WeakReference<Context> ctxReference = new WeakReference<>(DuellActivity.getInstance());
+    private static WeakReference<Context> ctxReference = new WeakReference<Context>(DuellActivity.getInstance());
 
     private Preferences()
     {
@@ -72,21 +80,25 @@ public final class Preferences
         return prefs.getString(key, defaultValue);
     }
 
-    public static SharedPreferences.Editor getEditor()
+    public static String getStringTest() {return "test";}
+
+    public static EditorWrapper getEditor()
     {
         Context ctx = ctxReference.get();
 
         if (ctx == null)
         {
-            return null;
+            return new EditorWrapper(null);
         }
 
         SharedPreferences prefs = ctx.getSharedPreferences(SHARED_PREFERENCES_NAME, Application.MODE_PRIVATE);
-        return prefs.edit();
+        return new EditorWrapper(prefs.edit());
     }
 
-    public static boolean remove(SharedPreferences.Editor editor, String key)
+    public static boolean remove(EditorWrapper wrapper, String key)
     {
+        SharedPreferences.Editor editor = wrapper.get();
+
         if (editor == null)
         {
             Log.e(TAG, "Editor instance is null, key not removed");
@@ -97,8 +109,10 @@ public final class Preferences
         return true;
     }
 
-    public static boolean putInt(SharedPreferences.Editor editor, String key, int value)
+    public static boolean putInt(EditorWrapper wrapper, String key, int value)
     {
+        SharedPreferences.Editor editor = wrapper.get();
+
         if (editor == null)
         {
             Log.e(TAG, "Editor instance is null, value not updated");
@@ -109,8 +123,10 @@ public final class Preferences
         return true;
     }
 
-    public static boolean putFloat(SharedPreferences.Editor editor, String key, float value)
+    public static boolean putFloat(EditorWrapper wrapper, String key, float value)
     {
+        SharedPreferences.Editor editor = wrapper.get();
+
         if (editor == null)
         {
             Log.e(TAG, "Editor instance is null, value not updated");
@@ -121,8 +137,10 @@ public final class Preferences
         return true;
     }
 
-    public static boolean putBoolean(SharedPreferences.Editor editor, String key, boolean value)
+    public static boolean putBoolean(EditorWrapper wrapper, String key, boolean value)
     {
+        SharedPreferences.Editor editor = wrapper.get();
+
         if (editor == null)
         {
             Log.e(TAG, "Editor instance is null, value not updated");
@@ -133,8 +151,10 @@ public final class Preferences
         return true;
     }
 
-    public static boolean putString(SharedPreferences.Editor editor, String key, String value)
+    public static boolean putString(EditorWrapper wrapper, String key, String value)
     {
+        SharedPreferences.Editor editor = wrapper.get();
+
         if (editor == null)
         {
             Log.e(TAG, "Editor instance is null, value not updated");
@@ -145,8 +165,10 @@ public final class Preferences
         return true;
     }
 
-    public static boolean apply(SharedPreferences.Editor editor)
+    public static boolean apply(EditorWrapper wrapper)
     {
+        SharedPreferences.Editor editor = wrapper.get();
+
         if (editor == null)
         {
             Log.e(TAG, "Editor instance is null, nothing was applied");
@@ -157,8 +179,10 @@ public final class Preferences
         return true;
     }
 
-    public static boolean synchronize(SharedPreferences.Editor editor)
+    public static boolean synchronize(EditorWrapper wrapper)
     {
+        SharedPreferences.Editor editor = wrapper.get();
+
         if (editor == null)
         {
             Log.e(TAG, "Editor instance is null, nothing was synchronized");

@@ -6,7 +6,7 @@ import unittest.TestCase;
 
 class PreferencesTest extends TestCase
 {
-    public function new()
+    override public function setup(): Void
     {
         var editor: Editor = Preferences.getEditor();
 
@@ -17,11 +17,9 @@ class PreferencesTest extends TestCase
         editor.remove("key_to_be_removed");
 
         editor.synchronize();
-
-        super();
     }
 
-    public function testBoolSettingAndRetrieving()
+    public function testBoolSettingAndRetrieving(): Void
     {
         assertEquals(false, Preferences.getBool("bool_flag", false));
 
@@ -37,7 +35,7 @@ class PreferencesTest extends TestCase
         assertFalse(Preferences.getBool("bool_flag", true));
     }
 
-    public function testIntSettingAndRetrieving()
+    public function testIntSettingAndRetrieving(): Void
     {
         assertEquals(-1, Preferences.getInt("int_flag", -1));
 
@@ -53,23 +51,23 @@ class PreferencesTest extends TestCase
         assertEquals(250, Preferences.getInt("int_flag", -1));
     }
 
-    public function testFloatSettingAndRetrieving()
+    public function testFloatSettingAndRetrieving(): Void
     {
-        assertEquals(-1.0, Preferences.getFloat("float_flag", -1.0));
+        assertEqualsFloat(-1.0, Preferences.getFloat("float_flag", -1.0));
 
         var editor: Editor = Preferences.getEditor();
-        editor.putFloat("float_flag", 150.2);
+        editor.putFloat("float_flag", 3.7);
         editor.synchronize();
 
-        assertEquals(150.2, Preferences.getFloat("float_flag", -1.0));
+        assertEqualsFloat(3.7, Preferences.getFloat("float_flag", -1.0));
 
         editor.putFloat("float_flag", 989.989);
         editor.synchronize();
 
-        assertEquals(989.989, Preferences.getFloat("float_flag", -1.0));
+        assertEqualsFloat(989.989, Preferences.getFloat("float_flag", -1.0));
     }
 
-    public function testStringSettingAndRetrieving()
+    public function testStringSettingAndRetrieving(): Void
     {
         assertEquals("dummy", Preferences.getString("string_flag", "dummy"));
 
@@ -85,7 +83,7 @@ class PreferencesTest extends TestCase
         assertEquals("foobar", Preferences.getString("string_flag", "dummy"));
     }
 
-    public function testKeyRemoving()
+    public function testKeyRemoving(): Void
     {
         var editor: Editor = Preferences.getEditor();
         editor.putString("key_to_be_removed", "val");
@@ -97,5 +95,10 @@ class PreferencesTest extends TestCase
         editor.synchronize();
 
         assertEquals("dummy", Preferences.getString("key_to_be_removed", "dummy"));
+    }
+
+    private inline function assertEqualsFloat(expected: Float, result: Float): Void
+    {
+        assertTrue(result > expected - 0.001 && result < expected + 0.001);
     }
 }

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <project>
 	
-	<app title="SampleTest" file="sampleTest" package="de.gameduell.preferencestest" version="0.0.1" company="GameDuell GmbH"  />
+	<app title="Preferences Test" file="preferencesTest" package="de.gameduell.preferencestest" version="0.0.1" company="GameDuell GmbH"  />
 
 	<main name="MainUnitTest" />
 	
