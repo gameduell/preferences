@@ -21,80 +21,59 @@ static NSString* valueToNSString(value haxeString)
 }
 
 
-static value getInt(value keyHx, value defaultValueHx)
+static value getInt(value keyHx)
 {
     NSString *key = valueToNSString(keyHx);
-    int defaultValue = val_get_int(defaultValueHx);
 
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     int value = [userDefaults integerForKey:key];
 
-    // this can mean absence of key
-    if (value == 0)
-    {
-        value = defaultValue;
-    }
-
     return alloc_int(value);
 }
-DEFINE_PRIM(getInt, 2);
+DEFINE_PRIM(getInt, 1);
 
 
-static value getBool(value keyHx, value defaultValueHx)
+static value getBool(value keyHx)
 {
     NSString *key = valueToNSString(keyHx);
-    BOOL defaultValue = val_get_bool(defaultValueHx);
 
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     BOOL value = [userDefaults boolForKey:key];
 
-    // this can mean absence of key
-    if (!value)
-    {
-        value = defaultValue;
-    }
-
     return alloc_bool(value);
 }
-DEFINE_PRIM(getBool, 2);
+DEFINE_PRIM(getBool, 1);
 
 
-static value getFloat(value keyHx, value defaultValueHx)
+static value getFloat(value keyHx)
 {
     NSString *key = valueToNSString(keyHx);
-    float defaultValue = (float) val_get_double(defaultValueHx);
 
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     float value = [userDefaults floatForKey:key];
 
-    // this can mean absence of key
-    if (value == 0)
-    {
-        value = defaultValue;
-    }
-
     return alloc_float(value);
 }
-DEFINE_PRIM(getFloat, 2);
+DEFINE_PRIM(getFloat, 1);
 
 
-static value getString(value keyHx, value defaultValueHx)
+static value getString(value keyHx)
 {
     NSString *key = valueToNSString(keyHx);
-    NSString *defaultValue = valueToNSString(defaultValueHx);
 
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     NSString *value = [userDefaults stringForKey:key];
 
-    // this can mean absence of key
-    if (!value)
+    if (value)
     {
-        value = defaultValue;
+        return alloc_string(value.UTF8String);
     }
-
-    return alloc_string(value.UTF8String);
+    else
+    {
+        return NULL;
+    }
 }
-DEFINE_PRIM(getString, 2);
+DEFINE_PRIM(getString, 1);
 
 
 static value putInt(value keyHx, value valueHx)

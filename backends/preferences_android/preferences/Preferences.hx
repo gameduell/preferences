@@ -12,32 +12,32 @@ import hxjni.JNI;
 class Preferences
 {
     private static var getIntNative = JNI.createStaticMethod("org/haxe/duell/preferences/Preferences",
-    "getInt", "(Ljava/lang/String;I)I");
+    "getInt", "(Ljava/lang/String;)I");
     private static var getBoolNative = JNI.createStaticMethod("org/haxe/duell/preferences/Preferences",
-    "getBoolean", "(Ljava/lang/String;Z)Z");
+    "getBoolean", "(Ljava/lang/String;)Z");
     private static var getFloatNative = JNI.createStaticMethod("org/haxe/duell/preferences/Preferences",
-    "getFloat", "(Ljava/lang/String;F)F");
+    "getFloat", "(Ljava/lang/String;)F");
     private static var getStringNative = JNI.createStaticMethod("org/haxe/duell/preferences/Preferences",
-    "getString", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;");
+    "getString", "(Ljava/lang/String;)Ljava/lang/String;");
 
-    public static function getInt(key: String, defaultValue: Int): Int
+    public static function getInt(key: String): Int
     {
-        return getIntNative(key, defaultValue);
+        return getIntNative(key);
     }
 
-    public static function getBool(key: String, defaultValue: Bool): Bool
+    public static function getBool(key: String): Bool
     {
-        return getBoolNative(key, defaultValue);
+        return getBoolNative(key);
     }
 
-    public static function getFloat(key: String, defaultValue: Float): Float
+    public static function getFloat(key: String): Float
     {
-        return getFloatNative(key, defaultValue);
+        return getFloatNative(key);
     }
 
-    public static function getString(key: String, defaultValue: String): String
+    public static function getString(key: String): String
     {
-        return getStringNative(key, defaultValue);
+        return getStringNative(key);
     }
 
     public static function getEditor(): Editor

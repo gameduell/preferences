@@ -11,29 +11,29 @@ import cpp.Lib;
  */
 class Preferences
 {
-    private static var getIntNative = Lib.load("preferencesios", "getInt", 2);
-    private static var getBoolNative = Lib.load("preferencesios", "getBool", 2);
-    private static var getFloatNative = Lib.load("preferencesios", "getFloat", 2);
-    private static var getStringNative = Lib.load("preferencesios", "getString", 2);
+    private static var getIntNative = Lib.load("preferencesios", "getInt", 1);
+    private static var getBoolNative = Lib.load("preferencesios", "getBool", 1);
+    private static var getFloatNative = Lib.load("preferencesios", "getFloat", 1);
+    private static var getStringNative = Lib.load("preferencesios", "getString", 1);
 
-    public static function getInt(key: String, defaultValue: Int): Int
+    public static function getInt(key: String): Int
     {
-        return getIntNative(key, defaultValue);
+        return getIntNative(key);
     }
 
-    public static function getBool(key: String, defaultValue: Bool): Bool
+    public static function getBool(key: String): Bool
     {
-        return getBoolNative(key, defaultValue);
+        return getBoolNative(key);
     }
 
-    public static function getFloat(key: String, defaultValue: Float): Float
+    public static function getFloat(key: String): Float
     {
-        return getFloatNative(key, defaultValue);
+        return getFloatNative(key);
     }
 
-    public static function getString(key: String, defaultValue: String): String
+    public static function getString(key: String): String
     {
-        return getStringNative(key, defaultValue);
+        return getStringNative(key);
     }
 
     public static function getEditor(): Editor

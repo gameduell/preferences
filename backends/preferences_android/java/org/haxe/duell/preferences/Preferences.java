@@ -19,6 +19,12 @@ import android.util.Log;
 public final class Preferences
 {
     private static final String TAG = Preferences.class.getSimpleName();
+
+    private static final int DEFAULT_VALUE_INT = 0;
+    private static final float DEFAULT_VALUE_FLOAT = 0.0f;
+    private static final boolean DEFAULT_VALUE_BOOLEAN = false;
+    private static final String DEFAULT_VALUE_STRING = null;
+
     private static final String SHARED_PREFERENCES_NAME = "org.haxe.duell.preferences";
 
     private static WeakReference<Context> ctxReference = new WeakReference<Context>(DuellActivity.getInstance());
@@ -28,59 +34,57 @@ public final class Preferences
         // can't be instantiated
     }
 
-    public static int getInt(final String key, final int defaultValue)
+    public static int getInt(final String key)
     {
         Context ctx = ctxReference.get();
 
         if (ctx == null)
         {
-            return defaultValue;
+            return DEFAULT_VALUE_INT;
         }
 
         SharedPreferences prefs = ctx.getSharedPreferences(SHARED_PREFERENCES_NAME, Application.MODE_PRIVATE);
-        return prefs.getInt(key, defaultValue);
+        return prefs.getInt(key, DEFAULT_VALUE_INT);
     }
 
-    public static float getFloat(final String key, final float defaultValue)
+    public static float getFloat(final String key)
     {
         Context ctx = ctxReference.get();
 
         if (ctx == null)
         {
-            return defaultValue;
+            return DEFAULT_VALUE_FLOAT;
         }
 
         SharedPreferences prefs = ctx.getSharedPreferences(SHARED_PREFERENCES_NAME, Application.MODE_PRIVATE);
-        return prefs.getFloat(key, defaultValue);
+        return prefs.getFloat(key, DEFAULT_VALUE_FLOAT);
     }
 
-    public static boolean getBoolean(final String key, final boolean defaultValue)
+    public static boolean getBoolean(final String key)
     {
         Context ctx = ctxReference.get();
 
         if (ctx == null)
         {
-            return defaultValue;
+            return DEFAULT_VALUE_BOOLEAN;
         }
 
         SharedPreferences prefs = ctx.getSharedPreferences(SHARED_PREFERENCES_NAME, Application.MODE_PRIVATE);
-        return prefs.getBoolean(key, defaultValue);
+        return prefs.getBoolean(key, DEFAULT_VALUE_BOOLEAN);
     }
 
-    public static String getString(final String key, final String defaultValue)
+    public static String getString(final String key)
     {
         Context ctx = ctxReference.get();
 
         if (ctx == null)
         {
-            return defaultValue;
+            return DEFAULT_VALUE_STRING;
         }
 
         SharedPreferences prefs = ctx.getSharedPreferences(SHARED_PREFERENCES_NAME, Application.MODE_PRIVATE);
-        return prefs.getString(key, defaultValue);
+        return prefs.getString(key, DEFAULT_VALUE_STRING);
     }
-
-    public static String getStringTest() {return "test";}
 
     public static EditorWrapper getEditor()
     {

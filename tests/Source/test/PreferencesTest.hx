@@ -21,66 +21,66 @@ class PreferencesTest extends TestCase
 
     public function testBoolSettingAndRetrieving(): Void
     {
-        assertEquals(false, Preferences.getBool("bool_flag", false));
+        assertEquals(false, Preferences.getBool("bool_flag"));
 
         var editor: Editor = Preferences.getEditor();
         editor.putBool("bool_flag", true);
         editor.synchronize();
 
-        assertTrue(Preferences.getBool("bool_flag", false));
+        assertTrue(Preferences.getBool("bool_flag"));
 
         editor.putBool("bool_flag", false);
         editor.synchronize();
 
-        assertFalse(Preferences.getBool("bool_flag", true));
+        assertFalse(Preferences.getBool("bool_flag"));
     }
 
     public function testIntSettingAndRetrieving(): Void
     {
-        assertEquals(-1, Preferences.getInt("int_flag", -1));
+        assertEquals(0, Preferences.getInt("int_flag"));
 
         var editor: Editor = Preferences.getEditor();
         editor.putInt("int_flag", 42);
         editor.synchronize();
 
-        assertEquals(42, Preferences.getInt("int_flag", -1));
+        assertEquals(42, Preferences.getInt("int_flag"));
 
         editor.putInt("int_flag", 250);
         editor.synchronize();
 
-        assertEquals(250, Preferences.getInt("int_flag", -1));
+        assertEquals(250, Preferences.getInt("int_flag"));
     }
 
     public function testFloatSettingAndRetrieving(): Void
     {
-        assertEqualsFloat(-1.0, Preferences.getFloat("float_flag", -1.0));
+        assertEqualsFloat(0.0, Preferences.getFloat("float_flag"));
 
         var editor: Editor = Preferences.getEditor();
         editor.putFloat("float_flag", 3.7);
         editor.synchronize();
 
-        assertEqualsFloat(3.7, Preferences.getFloat("float_flag", -1.0));
+        assertEqualsFloat(3.7, Preferences.getFloat("float_flag"));
 
         editor.putFloat("float_flag", 989.989);
         editor.synchronize();
 
-        assertEqualsFloat(989.989, Preferences.getFloat("float_flag", -1.0));
+        assertEqualsFloat(989.989, Preferences.getFloat("float_flag"));
     }
 
     public function testStringSettingAndRetrieving(): Void
     {
-        assertEquals("dummy", Preferences.getString("string_flag", "dummy"));
+        assertEquals(null, Preferences.getString("string_flag"));
 
         var editor: Editor = Preferences.getEditor();
         editor.putString("string_flag", "test");
         editor.synchronize();
 
-        assertEquals("test", Preferences.getString("string_flag", "dummy"));
+        assertEquals("test", Preferences.getString("string_flag"));
 
         editor.putString("string_flag", "foobar");
         editor.synchronize();
 
-        assertEquals("foobar", Preferences.getString("string_flag", "dummy"));
+        assertEquals("foobar", Preferences.getString("string_flag"));
     }
 
     public function testKeyRemoving(): Void
@@ -89,12 +89,12 @@ class PreferencesTest extends TestCase
         editor.putString("key_to_be_removed", "val");
         editor.synchronize();
 
-        assertEquals("val", Preferences.getString("key_to_be_removed", "dummy"));
+        assertEquals("val", Preferences.getString("key_to_be_removed"));
 
         editor.remove("key_to_be_removed");
         editor.synchronize();
 
-        assertEquals("dummy", Preferences.getString("key_to_be_removed", "dummy"));
+        assertEquals(null, Preferences.getString("key_to_be_removed"));
     }
 
     private inline function assertEqualsFloat(expected: Float, result: Float): Void
