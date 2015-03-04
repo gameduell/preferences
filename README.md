@@ -8,10 +8,6 @@ underlying implementation.
 == 1.0.0 ==
 
 - Working for every platform, using a combination between Cookies and Local Storage for HTML5
-
-
-== 0.2.0 ==
-
 - Set initial API with:
 -- get/put bool
 -- get/put int
