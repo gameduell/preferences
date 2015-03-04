@@ -4,7 +4,6 @@
  */
 package preferences;
 
-import capabilities.Capabilities;
 import flash.net.SharedObject;
 
 /**
@@ -12,27 +11,26 @@ import flash.net.SharedObject;
  */
 class Preferences
 {
-    private static var appPackage: String = Capabilities.instance().buildInfo.APPLICATION_BUNDLE;
-    private static var sharedObject: SharedObject = SharedObject.getLocal(appPackage);
+    private static var sharedObject: SharedObject = SharedObject.getLocal(Settings.PACKAGE);
 
     public static function getInt(key: String): Int
     {
-        return sharedObject.data.key;
+        return untyped sharedObject.data[key];
     }
 
     public static function getBool(key: String): Bool
     {
-        return sharedObject.data.key;
+        return untyped sharedObject.data[key];
     }
 
     public static function getFloat(key: String): Float
     {
-        return sharedObject.data.key;
+        return untyped sharedObject.data[key];
     }
 
     public static function getString(key: String): String
     {
-        return sharedObject.data.key;
+        return untyped sharedObject.data[key];
     }
 
     public static function getEditor(): Editor

@@ -4,37 +4,81 @@
  */
 package preferences;
 
+import preferences.PersistenceMethod.PersistenceHelper;
+import js.Cookie;
+import js.html.Storage;
+import js.Browser;
+
 /**
-   @author jxav
+    @author jxav
  */
 class Preferences
 {
-    public static function getInt(key: String, defaultValue: Int = 0): Int
+    private static var method: PersistenceMethod = PersistenceHelper.selectPersistenceMethod();
+
+    public static function getInt(key: String): Int
     {
-        // TODO
-        return defaultValue;
+        var value: String = getString(key);
+
+        if (value != null)
+        {
+            return Std.parseInt(value);
+        }
+        else
+        {
+            return 0;
+        }
     }
 
-    public static function getBool(key: String, defaultValue: Bool = false): Bool
+    public static function getBool(key: String): Bool
     {
-        // TODO
-        return defaultValue;
+        var value: String = getString(key);
+
+        if (value != null)
+        {
+            return value.toLowerCase() == "true";
+        }
+        else
+        {
+            return false;
+        }
     }
 
-    public static function getFloat(key: String, defaultValue: Float = 0.0): Float
+    public static function getFloat(key: String): Float
     {
-        // TODO
-        return defaultValue;
+        var value: String = getString(key);
+
+        if (value != null)
+        {
+            return Std.parseFloat(value);
+        }
+        else
+        {
+            return 0.0;
+        }
     }
 
-    public static function getString(key: String, defaultValue: String = null): String
+    public static function getString(key: String): String
     {
-        // TODO
-        return defaultValue;
+        if (method == PersistenceMethod.LOCAL_STORAGE)
+        {
+            var storage: Storage = Browser.getLocalStorage();
+
+            if (storage != null)
+            {
+                return storage.getItem(key);
+            }
+        }
+        else if (method == PersistenceMethod.COOKIE)
+        {
+            return Cookie.get(key);
+        }
+
+        return null;
     }
 
     public static function getEditor(): Editor
     {
-        return new Editor();
+        return new Editor(method);
     }
 }

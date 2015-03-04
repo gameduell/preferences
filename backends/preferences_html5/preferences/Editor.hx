@@ -4,56 +4,87 @@
  */
 package preferences;
 
+import js.Cookie;
+import js.Browser;
+import js.html.Storage;
+
 /**
-   @author jxav
+    @author jxav
  */
 @:allow(preferences.Preferences)
 class Editor
 {
-    private function new()
+    private var method: PersistenceMethod;
+
+    private function new(method: PersistenceMethod)
     {
-        // TODO
+        this.method = method;
     }
 
-    public function putInt(key: String, value: Int): Bool
+    public inline function putInt(key: String, value: Int): Bool
     {
-        // TODO
-        return false;
+        return putString(key, Std.string(value));
     }
 
-    public function putBool(key: String, value: Bool): Bool
+    public inline function putBool(key: String, value: Bool): Bool
     {
-        // TODO
-        return false;
+        return putString(key, Std.string(value));
     }
 
-    public function putFloat(key: String, value: Float): Bool
+    public inline function putFloat(key: String, value: Float): Bool
     {
-        // TODO
-        return false;
+        return putString(key, Std.string(value));
     }
 
     public function putString(key: String, value: String): Bool
     {
-        // TODO
+        if (method == PersistenceMethod.LOCAL_STORAGE)
+        {
+            var storage: Storage = Browser.getLocalStorage();
+
+            if (storage != null)
+            {
+                storage.setItem(key, value);
+                return true;
+            }
+        }
+        else if (method == PersistenceMethod.COOKIE)
+        {
+            Cookie.set(key, value);
+            return true;
+        }
+
         return false;
     }
 
     public function remove(key: String): Bool
     {
-        // TODO
+        if (method == PersistenceMethod.LOCAL_STORAGE)
+        {
+            var storage: Storage = Browser.getLocalStorage();
+
+            if (storage != null)
+            {
+                storage.removeItem(key);
+                return true;
+            }
+        }
+        else if (method == PersistenceMethod.COOKIE)
+        {
+            Cookie.remove(key);
+            return true;
+        }
+
         return false;
     }
 
-    public function apply(): Bool
+    public inline function apply(): Bool
     {
-        // TODO
-        return false;
+        return true;
     }
 
-    public function synchronize(): Bool
+    public inline function synchronize(): Bool
     {
-        // TODO
-        return false;
+        return true;
     }
 }

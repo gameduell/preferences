@@ -21,31 +21,31 @@ class Editor
 
     public function putInt(key: String, value: Int): Bool
     {
-        sharedObject.data.key = value;
+        untyped sharedObject.data[key] = value;
         return true;
     }
 
     public function putBool(key: String, value: Bool): Bool
     {
-        sharedObject.data.key = value;
+        untyped sharedObject.data[key] = value;
         return true;
     }
 
     public function putFloat(key: String, value: Float): Bool
     {
-        sharedObject.data.key = value;
+        untyped sharedObject.data[key] = value;
         return true;
     }
 
     public function putString(key: String, value: String): Bool
     {
-        sharedObject.data.key = value;
+        untyped sharedObject.data[key] = value;
         return true;
     }
 
     public function remove(key: String): Bool
     {
-        sharedObject.data.key = null;
+        untyped sharedObject.data[key] = null;
         return true;
     }
 

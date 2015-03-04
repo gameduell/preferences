@@ -97,6 +97,21 @@ class PreferencesTest extends TestCase
         assertEquals(null, Preferences.getString("key_to_be_removed"));
     }
 
+    public function testMixedKeys(): Void
+    {
+        var editor: Editor = Preferences.getEditor();
+        editor.putString("string_flag", "foo");
+        editor.putInt("int_flag", 50);
+        editor.putBool("bool_flag", true);
+        editor.putFloat("float_flag", 3.0);
+        editor.synchronize();
+
+        assertEquals("foo", Preferences.getString("string_flag"));
+        assertTrue(Preferences.getBool("bool_flag"));
+        assertEquals(50, Preferences.getInt("int_flag"));
+        assertEqualsFloat(3.0, Preferences.getFloat("float_flag"));
+    }
+
     private inline function assertEqualsFloat(expected: Float, result: Float): Void
     {
         assertTrue(result > expected - 0.001 && result < expected + 0.001);
