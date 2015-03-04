@@ -4,56 +4,67 @@
  */
 package preferences;
 
+import flash.net.SharedObject;
+
 /**
-   @author jxav
+    @author jxav
  */
 @:allow(preferences.Preferences)
 class Editor
 {
-    private function new()
+    private var sharedObject: SharedObject;
+
+    private function new(sharedObject: SharedObject)
     {
-        // TODO
+        this.sharedObject = sharedObject;
     }
 
     public function putInt(key: String, value: Int): Bool
     {
-        // TODO
-        return false;
+        sharedObject.data.key = value;
+        return true;
     }
 
     public function putBool(key: String, value: Bool): Bool
     {
-        // TODO
-        return false;
+        sharedObject.data.key = value;
+        return true;
     }
 
     public function putFloat(key: String, value: Float): Bool
     {
-        // TODO
-        return false;
+        sharedObject.data.key = value;
+        return true;
     }
 
     public function putString(key: String, value: String): Bool
     {
-        // TODO
-        return false;
+        sharedObject.data.key = value;
+        return true;
     }
 
     public function remove(key: String): Bool
     {
-        // TODO
-        return false;
+        sharedObject.data.key = null;
+        return true;
     }
 
     public function apply(): Bool
     {
-        // TODO
-        return false;
+        return synchronize();
     }
 
     public function synchronize(): Bool
     {
-        // TODO
-        return false;
+        try
+        {
+            sharedObject.flush(10000);
+        }
+        catch (error: Dynamic)
+        {
+            return false;
+        }
+
+        return true;
     }
 }

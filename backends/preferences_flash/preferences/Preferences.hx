@@ -4,37 +4,39 @@
  */
 package preferences;
 
+import capabilities.Capabilities;
+import flash.net.SharedObject;
+
 /**
-   @author jxav
+    @author jxav
  */
 class Preferences
 {
-    public static function getInt(key: String, defaultValue: Int = 0): Int
+    private static var appPackage: String = Capabilities.instance().buildInfo.APPLICATION_BUNDLE;
+    private static var sharedObject: SharedObject = SharedObject.getLocal(appPackage);
+
+    public static function getInt(key: String): Int
     {
-        // TODO
-        return defaultValue;
+        return sharedObject.data.key;
     }
 
-    public static function getBool(key: String, defaultValue: Bool = false): Bool
+    public static function getBool(key: String): Bool
     {
-        // TODO
-        return defaultValue;
+        return sharedObject.data.key;
     }
 
-    public static function getFloat(key: String, defaultValue: Float = 0.0): Float
+    public static function getFloat(key: String): Float
     {
-        // TODO
-        return defaultValue;
+        return sharedObject.data.key;
     }
 
-    public static function getString(key: String, defaultValue: String = null): String
+    public static function getString(key: String): String
     {
-        // TODO
-        return defaultValue;
+        return sharedObject.data.key;
     }
 
     public static function getEditor(): Editor
     {
-        return new Editor();
+        return new Editor(sharedObject);
     }
 }
