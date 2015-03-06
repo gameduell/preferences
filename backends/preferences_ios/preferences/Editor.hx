@@ -47,11 +47,6 @@ class Editor
         return removeNative(key);
     }
 
-    public function apply(): Bool
-    {
-        return synchronize();
-    }
-
     public function synchronize(): Bool
     {
         return synchronizeNative();

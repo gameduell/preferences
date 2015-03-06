@@ -14,4 +14,4 @@ underlying implementation.
 -- get/put float
 -- get/put string
 -- remove key
--- apply / synchronize
+-- synchronize

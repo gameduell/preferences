@@ -70,7 +70,7 @@ static value getString(value keyHx)
     }
     else
     {
-        return NULL;
+        return alloc_null();
     }
 }
 DEFINE_PRIM(getString, 1);

@@ -78,11 +78,6 @@ class Editor
         return false;
     }
 
-    public inline function apply(): Bool
-    {
-        return true;
-    }
-
     public inline function synchronize(): Bool
     {
         return true;

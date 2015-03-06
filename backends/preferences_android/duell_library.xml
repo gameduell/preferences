@@ -6,6 +6,7 @@
     <platform-config>
         <android>
             <java-source name="PREFERENCES" path="java" />
+            <java-source name="PREFERENCES_TEMPLATE" path="template" />
         </android>
     </platform-config>
 

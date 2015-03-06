@@ -57,15 +57,6 @@ extern class Editor
     public function remove(key: String): Bool;
 
     /**
-        Synchronizes the modified changes with whatever was present in the preferences, asynchronously.
-
-        Not all backends support this feature, so this feature might call `synchronize()` for some backends.
-
-        Returns whether the operation was successful or not.
-     */
-    public function apply(): Bool;
-
-    /**
         Synchronizes the modified changes with whatever was present in the preferences, synchronously, and returns
         whether the operation was successful or not.
      */

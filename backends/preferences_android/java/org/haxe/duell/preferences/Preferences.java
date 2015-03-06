@@ -25,7 +25,7 @@ public final class Preferences
     private static final boolean DEFAULT_VALUE_BOOLEAN = false;
     private static final String DEFAULT_VALUE_STRING = null;
 
-    private static final String SHARED_PREFERENCES_NAME = "org.haxe.duell.preferences";
+    private static final String SHARED_PREFERENCES_NAME = Settings.PACKAGE;
 
     private static WeakReference<Context> ctxReference = new WeakReference<Context>(DuellActivity.getInstance());
 
@@ -166,20 +166,6 @@ public final class Preferences
         }
 
         editor.putString(key, value);
-        return true;
-    }
-
-    public static boolean apply(EditorWrapper wrapper)
-    {
-        SharedPreferences.Editor editor = wrapper.get();
-
-        if (editor == null)
-        {
-            Log.e(TAG, "Editor instance is null, nothing was applied");
-            return false;
-        }
-
-        editor.apply();
         return true;
     }
 

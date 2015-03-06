@@ -25,7 +25,15 @@ class Preferences
 
     public static function getFloat(key: String): Float
     {
-        return untyped sharedObject.data[key];
+        var f: Float = untyped sharedObject.data[key];
+
+        // default value
+        if (Math.isNaN(f))
+        {
+            return 0.0;
+        }
+
+        return f;
     }
 
     public static function getString(key: String): String

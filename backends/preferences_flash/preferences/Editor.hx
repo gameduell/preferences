@@ -45,13 +45,8 @@ class Editor
 
     public function remove(key: String): Bool
     {
-        untyped sharedObject.data[key] = null;
+        untyped __delete__(sharedObject.data, key);
         return true;
-    }
-
-    public function apply(): Bool
-    {
-        return synchronize();
     }
 
     public function synchronize(): Bool

@@ -24,8 +24,6 @@ class Editor
     "putString", "(Lorg/haxe/duell/preferences/EditorWrapper;Ljava/lang/String;Ljava/lang/String;)Z");
     private static var removeNative = JNI.createStaticMethod("org/haxe/duell/preferences/Preferences",
     "remove", "(Lorg/haxe/duell/preferences/EditorWrapper;Ljava/lang/String;)Z");
-    private static var applyNative = JNI.createStaticMethod("org/haxe/duell/preferences/Preferences",
-    "apply", "(Lorg/haxe/duell/preferences/EditorWrapper;)Z");
     private static var synchronizeNative = JNI.createStaticMethod("org/haxe/duell/preferences/Preferences",
     "synchronize", "(Lorg/haxe/duell/preferences/EditorWrapper;)Z");
 
@@ -59,11 +57,6 @@ class Editor
     public function remove(key: String): Bool
     {
         return removeNative(editor, key);
-    }
-
-    public function apply(): Bool
-    {
-        return applyNative(editor);
     }
 
     public function synchronize(): Bool
