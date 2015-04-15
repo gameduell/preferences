@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
+<<<<<<< HEAD
 <library>
 
     <supported-build-plugin name="android" version="2.0.0+" />
+=======
+<library xmlns="duell">
+>>>>>>> c92e6fa172daa68a3dd4f0a55d288b9abe4b2ec7
 
     <platform-config>
         <android>

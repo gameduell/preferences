@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<project>
+<project xmlns="duell">
 	
 	<app title="Preferences Test" file="preferencesTest" package="de.gameduell.preferencestest" version="0.0.1" company="GameDuell GmbH"  />
 
@@ -8,6 +8,7 @@
 	<source path="Source" />
 
     <duelllib name="preferences" version="master" />
-	<duelllib name="unittest" version="1.0.0+" />
+    <duelllib name="duellkit" version="2.0.0+" />
+	<duelllib name="unittest" version="3.0.0+" />
 
 </project>
