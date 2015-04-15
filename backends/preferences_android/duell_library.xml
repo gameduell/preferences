@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<library xmlns="duell">
 
     <supported-build-plugin name="android" version="3.0.0+" />
 
