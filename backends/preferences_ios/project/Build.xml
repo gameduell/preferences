@@ -4,7 +4,7 @@
 	
 	<files id="src">
 
-		<include name="${haxelib:duellbuildios}/native/native.xml" />
+		<include name="${haxelib:duell_duellbuildios}/native/native.xml" />
 
 		<file name="src/Preferences.mm"/>
 
