@@ -19,7 +19,7 @@ class MainUnitTest
 
     private function startAfterDuellIsInitialized(): Void
     {
-        r = new TestRunner(testComplete);
+        r = new TestRunner(testComplete, DuellKit.instance().onError);
         r.add(new PreferencesTest());
 
 #if test
@@ -29,7 +29,7 @@ class MainUnitTest
         #else
         r.addLogger(new TestHTTPLogger(new TestSimpleLogger()));
         #end
-        
+
         #else
         r.addLogger(new TestSimpleLogger());
 #end
