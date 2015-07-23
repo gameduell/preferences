@@ -6,4 +6,10 @@
     <include path="backends/preferences_android/duell_library.xml" if="android" />
     <include path="backends/preferences_html5/duell_library.xml" if="html5" />
 
+    <platform-config>
+        <documentation>
+            <documentation-folder library="preferences" path="documentation" />
+        </documentation>
+    </platform-config>
+
 </library>
