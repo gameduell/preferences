@@ -5,6 +5,10 @@ underlying implementation.
 
 = Release Log =
 
+== 5.0.0 ==
+
+New duell tool major
+
 == 1.0.0 ==
 
 - Working for every platform, using a combination between Cookies and Local Storage for HTML5

@@ -6,7 +6,7 @@ import unittest.implementations.TestHTTPLogger;
 import unittest.implementations.TestJUnitLogger;
 import unittest.implementations.TestSimpleLogger;
 
-import duell.DuellKit;
+import duellkit.DuellKit;
 
 class MainUnitTest
 {
