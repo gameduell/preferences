@@ -2,7 +2,6 @@
 <library xmlns="duell">
 
     <include path="backends/preferences_ios/duell_library.xml" if="ios" />
-    <include path="backends/preferences_flash/duell_library.xml" if="flash" />
     <include path="backends/preferences_android/duell_library.xml" if="android" />
     <include path="backends/preferences_html5/duell_library.xml" if="html5" />
 
