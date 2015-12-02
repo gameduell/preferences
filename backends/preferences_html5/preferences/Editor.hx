@@ -14,6 +14,8 @@ import js.html.Storage;
 @:allow(preferences.Preferences)
 class Editor
 {
+    private static inline var ONE_YEAR_IN_SECONDS: Int = 31536000;
+
     private var method: PersistenceMethod;
 
     private function new(method: PersistenceMethod)
@@ -50,7 +52,7 @@ class Editor
         }
         else if (method == PersistenceMethod.COOKIE)
         {
-            Cookie.set(key, value);
+            Cookie.set(key, value, ONE_YEAR_IN_SECONDS);
             return true;
         }
 
