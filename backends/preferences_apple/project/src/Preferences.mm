@@ -148,4 +148,4 @@ static value synchronize()
 DEFINE_PRIM(synchronize, 0);
 
 
-extern "C" int preferencesios_register_prims() { return 0; }
+extern "C" int preferencesapple_register_prims() { return 0; }

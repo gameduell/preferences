@@ -12,12 +12,12 @@ import cpp.Lib;
 @:allow(preferences.Preferences)
 class Editor
 {
-    private static var putIntNative = Lib.load("preferencesios", "putInt", 2);
-    private static var putBoolNative = Lib.load("preferencesios", "putBool", 2);
-    private static var putFloatNative = Lib.load("preferencesios", "putFloat", 2);
-    private static var putStringNative = Lib.load("preferencesios", "putString", 2);
-    private static var removeNative = Lib.load("preferencesios", "removeKey", 1);
-    private static var synchronizeNative = Lib.load("preferencesios", "synchronize", 0);
+    private static var putIntNative = Lib.load("preferencesapple", "putInt", 2);
+    private static var putBoolNative = Lib.load("preferencesapple", "putBool", 2);
+    private static var putFloatNative = Lib.load("preferencesapple", "putFloat", 2);
+    private static var putStringNative = Lib.load("preferencesapple", "putString", 2);
+    private static var removeNative = Lib.load("preferencesapple", "removeKey", 1);
+    private static var synchronizeNative = Lib.load("preferencesapple", "synchronize", 0);
 
     private function new()
     {}

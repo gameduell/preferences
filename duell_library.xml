@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <library xmlns="duell">
 
-    <include path="backends/preferences_ios/duell_library.xml" if="ios" />
+    <include path="backends/preferences_apple/duell_library.xml" if="apple" />
     <include path="backends/preferences_android/duell_library.xml" if="android" />
     <include path="backends/preferences_html5/duell_library.xml" if="html5" />
 

@@ -11,10 +11,10 @@ import cpp.Lib;
  */
 class Preferences
 {
-    private static var getIntNative = Lib.load("preferencesios", "getInt", 1);
-    private static var getBoolNative = Lib.load("preferencesios", "getBool", 1);
-    private static var getFloatNative = Lib.load("preferencesios", "getFloat", 1);
-    private static var getStringNative = Lib.load("preferencesios", "getString", 1);
+    private static var getIntNative = Lib.load("preferencesapple", "getInt", 1);
+    private static var getBoolNative = Lib.load("preferencesapple", "getBool", 1);
+    private static var getFloatNative = Lib.load("preferencesapple", "getFloat", 1);
+    private static var getStringNative = Lib.load("preferencesapple", "getString", 1);
 
     public static function getInt(key: String): Int
     {

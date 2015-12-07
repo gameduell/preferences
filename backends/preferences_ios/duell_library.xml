@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<library xmlns="duell">
-    <ndll name="preferencesios" build-file-path="project/Build.xml" bin-path="ndll" />
-</library>

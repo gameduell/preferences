@@ -2,3 +2,5 @@
 tests/Export/
 backends/preferences_ios/ndll/
 backends/preferences_ios/project/obj/
+backends/preferences_apple/ndll/
+backends/preferences_apple/project/obj/
