@@ -6,7 +6,7 @@ package preferences;
 
 import js.Browser;
 
-/**   
+/**
     @author jxav
  */
 enum PersistenceMethod
@@ -19,8 +19,8 @@ class PersistenceHelper
 {
     private static function allowsThirdPartyCookies(): Bool
     {
-        var regex: EReg = ~/Version\/\d+.\d+(\.\d+)?.*Safari/;
-        return !regex.match(Browser.navigator.userAgent);
+        /// haxe already Safely gets the browser's local storage, or returns null if localStorage is unsupported or disabled.
+        return Browser.getLocalStorage() != null;
     }
 
     public static inline function selectPersistenceMethod(): PersistenceMethod
