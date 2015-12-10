@@ -20,7 +20,7 @@ class PersistenceHelper
     private static function allowsThirdPartyCookies(): Bool
     {
         /// haxe already Safely gets the browser's local storage, or returns null if localStorage is unsupported or disabled.
-        return Browser.getLocalStorage() != null;
+        return Browser.getLocalStorage() == null;
     }
 
     public static inline function selectPersistenceMethod(): PersistenceMethod
