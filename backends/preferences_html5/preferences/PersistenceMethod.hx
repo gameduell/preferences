@@ -6,9 +6,6 @@ package preferences;
 
 import js.Browser;
 
-/**
-    @author jxav
- */
 enum PersistenceMethod
 {
     COOKIE;

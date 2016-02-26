@@ -6,9 +6,6 @@ package preferences;
 
 import hxjni.JNI;
 
-/**
-   @author jxav
- */
 class Preferences
 {
     private static var getIntNative = JNI.createStaticMethod("org/haxe/duell/preferences/Preferences",

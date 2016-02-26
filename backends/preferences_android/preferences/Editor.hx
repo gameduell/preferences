@@ -6,9 +6,6 @@ package preferences;
 
 import hxjni.JNI;
 
-/**
-   @author jxav
- */
 @:allow(preferences.Preferences)
 class Editor
 {

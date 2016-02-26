@@ -6,9 +6,6 @@ package preferences;
 
 import cpp.Lib;
 
-/**
-    @author jxav
- */
 class Preferences
 {
     private static var getIntNative = Lib.load("preferencesapple", "getInt", 1);

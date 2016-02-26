@@ -6,9 +6,6 @@ package preferences;
 
 import cpp.Lib;
 
-/**
-    @author jxav
- */
 @:allow(preferences.Preferences)
 class Editor
 {

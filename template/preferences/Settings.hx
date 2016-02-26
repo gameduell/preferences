@@ -4,9 +4,6 @@
  */
 package preferences;
 
-/**   
-    @author jxav
- */
 @:final class Settings
 {
     public static inline var PACKAGE: String = "::APP.PACKAGE::";

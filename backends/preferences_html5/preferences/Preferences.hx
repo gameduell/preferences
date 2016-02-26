@@ -9,9 +9,6 @@ import js.Cookie;
 import js.html.Storage;
 import js.Browser;
 
-/**
-    @author jxav
- */
 class Preferences
 {
     private static var method: PersistenceMethod = PersistenceHelper.selectPersistenceMethod();

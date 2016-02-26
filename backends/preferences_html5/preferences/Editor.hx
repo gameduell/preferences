@@ -8,9 +8,6 @@ import js.Cookie;
 import js.Browser;
 import js.html.Storage;
 
-/**
-    @author jxav
- */
 @:allow(preferences.Preferences)
 class Editor
 {
