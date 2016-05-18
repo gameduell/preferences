@@ -26,8 +26,6 @@
  
 package preferences;
 
-import js.Browser;
-
 enum PersistenceMethod
 {
     COOKIE;
@@ -36,14 +34,9 @@ enum PersistenceMethod
 
 class PersistenceHelper
 {
-    private static function allowsThirdPartyCookies(): Bool
-    {
-        /// haxe already Safely gets the browser's local storage, or returns null if localStorage is unsupported or disabled.
-        return Browser.getLocalStorage() == null;
-    }
-
     public static inline function selectPersistenceMethod(): PersistenceMethod
     {
-        return allowsThirdPartyCookies() ? PersistenceMethod.COOKIE : PersistenceMethod.LOCAL_STORAGE;
+        // LOCAL_STORAGE doesn't work good with iframes, so it is safer to use COOKIE instead.
+        return PersistenceMethod.COOKIE;
     }
 }
