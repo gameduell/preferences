@@ -5,14 +5,18 @@ underlying implementation.
 
 = Release Log =
 
+== 7.0.0 ==
+
+- New duell build android major.
+
 == 6.0.0 ==
 
-New duell build android major.
-Removed flash support
+- New duell build android major.
+- Removed flash support
 
 == 5.0.0 ==
 
-New duell tool major
+- New duell tool major
 
 == 1.0.0 ==
 
